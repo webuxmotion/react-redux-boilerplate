@@ -10,6 +10,7 @@ import * as api from '../config';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['countries'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
