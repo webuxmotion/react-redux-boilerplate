@@ -11,23 +11,26 @@ import { selectSearch } from '../store/controls/selectors';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
-  const search = useSelector(selectSearch);
-  const countries = useSelector(state => selectVisibleCountries(state, { search }));
-  const { status, error, qty } = useSelector(selectCountriesInfo);
+  // const search = useSelector(selectSearch);
+  const search = '';
+  // const countries = useSelector(state => selectVisibleCountries(state, { search }));
+  // const { status, error, qty } = useSelector(selectCountriesInfo);
   const navigate = useNavigate();
+  let status = '';
+  let countries = [];
 
-  useEffect(() => {
-    if (!qty) {
-      dispatch(loadCountries());
-    }
-  }, [qty]);
+  // useEffect(() => {
+  //   if (!qty) {
+  //     // dispatch(loadCountries());
+  //   }
+  // }, [qty]);
 
   return (
     <>
       <Controls />
 
-      {error && <h2>Can't fetch data</h2>}
-      {status === 'loading' && <h2>Loading...</h2>}
+      {/* {error && <h2>Can't fetch data</h2>}
+      {status === 'loading' && <h2>Loading...</h2>} */}
 
       {status === 'received' && (
         <List>
